@@ -1,7 +1,7 @@
 # Tabcorp - TransactionProcessing TEST Project
 
 ## Overview
-The `Tabcorp - TransactionProcessing TEST` is a microservices-based application built using Java Spring Boot, Kafka, JWT and MySQL. It demonstrates a transaction processing system with authentication and role-based access control.
+The `Tabcorp - TransactionProcessing TEST` is a microservices-based application built using Java Spring Boot, Kafka, JWT and MySQL. It demonstrates a transaction processing system with authentication (limited APIs for interview purpost) and role-based access control.
 
 EVERY record created here works via API and EVENT MESSAGE BROKER approach (FOLLOWED AN EVENT DRIVEN APPROACH):
 
@@ -17,7 +17,7 @@ EVERY record created here works via API and EVENT MESSAGE BROKER approach (FOLLO
 (i) Now, all the data recorded can be pulled as reports using the below mentioned APIs
 (j) For this interview assessment due to limited time availability AUTHENTICATION is provided only for REPORT API on transaction
 
-NOTE: THE GATEWAY TO THIS APPLICATION IS BY SENDING THIS BELO REST REQUEST from a UI layer or from any REST caller (TRANSACTION DATA)
+## NOTE: THE GATEWAY TO THIS APPLICATION IS BY SENDING THIS BELO REST REQUEST from a UI layer or from any REST caller (TRANSACTION DATA)
 
 POST /transactions/create  (FOR THIS ASSESSMENT IT IS NOT AUTHENTICATE. BUT CAN EXTEND AUTHENTICATION BY JUST INCLUDING THE URL PATTERN)
 Content-Type: application/json
