@@ -30,14 +30,17 @@ EVERY record created and inserted in the tables works via API and EVENT MESSAGE 
 
 ## NOTE: THE GATEWAY TO THIS APPLICATION IS BY SENDING THIS BELOW REST REQUEST from a UI layer or from any REST caller (TRANSACTION DATA)
 
-POST /transactions/create  (FOR THIS ASSESSMENT IT IS NOT AUTHENTICATED. BUT EXISTING AUTHENTICATION CAN BE EXTENDED BY JUST INCLUDING THE API's URL PATTERN)
+POST /transactions/create  
+
 Content-Type: application/json
+
+[THIS API IS NOT ADDED FOR JWT AUTHENTICATION here. BUT THE AUTHENTICATION built FOR Transaction REPORT API CAN BE EXTENDED just by including this URI pattern in Spring Security Config - requestMatchers()]
 
 {
     "customerCode": "10005",
     "productCode": "PRODUCT_003",
     "quantity": 3,
-    "transactionTime": "2025-03-10T10:30:00"
+    "transactionTime": "2025-03-15T10:30:00"
 }
 
 
