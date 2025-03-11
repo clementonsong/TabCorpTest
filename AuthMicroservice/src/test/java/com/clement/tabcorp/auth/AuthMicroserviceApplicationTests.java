@@ -1,10 +1,10 @@
-package com.clement.tabcorp.mservices;
+package com.clement.tabcorp.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TransactionMicroserviceApplicationTests {
+class AuthMicroserviceApplicationTests {
 
 	@Test
 	void contextLoads() {

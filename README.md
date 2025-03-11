@@ -80,33 +80,39 @@ Ensure the following software is installed:
 
 THE APPLICATION.PROPERTIES files is kept as is I used during development
 
-# Before running the transaction request from a REST client, please make sure zookeeper and kafka server are started first(Zookeeper First)
+# Before running the transaction request from a REST client, please make sure zookeeper and kafka server are started (start Zookeeper first)
 
 
 PRE ASSUMPTIONS: There are 4 tables that need to be created in separate databases 
 create these Databases in MYSQL: customer_db, product_db, order_db, auth_db 
 Create these Tables: customers, products, orders, users
 
-For the tables customers and products - PREPOPULATE with PRODUCT AND CUSTOMER DATA
+For the tables customers and products - PREPOPULATE with PRODUCT AND CUSTOMER DATA as given in the Challenge (orders and users table get populated as the application runs)
 
-** A DDL DML file (DDLDMLTabCorp.sql) is placed for easy setup in the root project 
+** SCHEMA: SQL scripts (DDLDML.sql) are placed for easy DB setup in the root directory  
 
-# JWT Secret Key and Expiration
+
+
+
+
+
+** JWT Secret Key and Expiration (already present in the appplicaiton.properties of AuthMicroservice and Transaction Microservice)
 jwt.secret=VGhlU2VjcmV0S2V5TWFyMjAyNUZvckNsZW1lbnRUaG9tYXNDb2RpbmdQcm9qZWN0cw==
 jwt.expirationMs=3600000
 
-# THIS key is a Base64-encoded version of TheSecretKeyMar2025ForClementThomasCodingProjects
+# THIS above key is a Base64-encoded version of 'TheSecretKeyMar2025ForClementThomasCodingProjects'
 
 
-## Under each microservice's resources folder update the application.properties in each microservice with your MySQL credentials.
+## Under each microservice's resources folder update the application.properties with your MySQL credentials. (already has development settings I used)
 
 
-## API SECURITY is for now introduced ONLY in TransactionMicroservice which uses the JWT authentication provided from AuthMicroserice.
+## API SECURITY is for now introduced ONLY in TransactionMicroservice's REPORT API which uses the JWT authentication provided from AuthMicroserice.
 
 How AUTH Microservice works:
 ============================
 There are 2 APIs in AuthMicroservice
 1) POST /auth/register - Register a new user account in TABCORP servers
+Content-Type: application/json
 
 SAMPLE REQUEST:
 
@@ -120,6 +126,7 @@ RESPONSE:
 User registered successfully
 
 2) POST /auth/login - Authenticates the user account created earlier in TABCORP database and CREATES a JWT token for use in TRANSACTION MICROSERTICE (REPORTS ONLY)
+Content-Type: application/json
 
 {
   "username": "tabcorp1",
@@ -136,10 +143,11 @@ APIS IN USAGE:
 TransactionMicroservice
 =======================
 POST /api/transactions/reports/count/{COUNTRY} - Get transaction count along with the order details of the country(Secured)
-Extra Header required here
+Content-Type: application/json
+#An extra Header required here
 - Authorization: Bearer <your_jwt_token_generated_from_auth>
 
-Troubleshooting
+Troubleshooting (if needed)
 403 Forbidden: Ensure your JWT token is valid and you have created the user with the correct role(just USER here for this test project).
 Database Connection Errors: Verify MySQL credentials and database configuration in application.properties.
 
