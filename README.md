@@ -58,14 +58,14 @@ TabcorpProject/
 ├── ProductMicroservice/
 └── TransactionMicroservice/
 
-(b) Do a mvn clean install in each of the 5 projects starting with common-dto first and in every module after that. (only common-dto is referred by other modules but the rest of them are all independent microservices)
+(b) Do a mvn clean install in each of the 5 projects starting with common-dto first and in every module after that. [only common-dto is referred by other modules but the rest of them are all independent microservice modules]
 
-(c) Once successfully built, as you might guess the common-dto is just a common project and not a microserivce. So run the other 4 microservices.
+(c) Once successfully built, as you might guess the common-dto is just a common project and not a microserivce. So ONLY run the other 4 Microservices using maven or from the IDE and they will run an individual servers (tomcat is bundled).
 
 (d) Also, create the database and tables according to the below instructions:
-PRE ASSUMPTIONS: There are 4 tables that need to be created in separate databases as these follow the Microservice Architecture - So each of the 4 can Microservices can work individually for certain functionalities.  
+PRE ASSUMPTIONS: There are 4 tables that need to be created in separate databases as these follow the Microservice Architecture - So each of the 4 Microservices in this architecture/application can work individually and communicate via APIs.  
 create these Databases in MYSQL: customer_db, product_db, order_db, auth_db 
-Create these Tables: customers, products, orders, users
+Create these 4 Tables: customers, products, orders, users
 
 ## For the tables customers and products - PREPOPULATE with PRODUCT AND CUSTOMER DATA as given in the Challenge and use the scripts enclosed in the root directory for easy DDL and DML scripts (orders and users table get populated as the application runs, so no data insertion required)
 
@@ -73,7 +73,7 @@ Create these Tables: customers, products, orders, users
 
 (e) As an important step also download Kafka related binaries and start the zookeeper and kafka server as TransactionMicroservice emits transaction details as events for Customer and Product Microservices.
 
-# Before running the below enclosed transaction request from a REST client, please make sure zookeeper and kafka server are started (start Zookeeper first)
+# Before running the below enclosed transaction request API from a REST client, please make sure zookeeper and kafka server are started (start Zookeeper first)
 
 ## NOTE: THE GATEWAY OR STARRING POINT to this application is by sending the below REST REQUEST from a UI layer or from any REST caller (TRANSACTION DATA)
 
